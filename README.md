@@ -8,3 +8,11 @@ Can make function parameters constant, used to make sure parameter value doesn't
 Can also make function return value constant (generally not needed)
 Macro constants use preprocessor to replace macro name with defined value, not preferred (doesn't follow scoping rules)
 Type qualifier is keyword that modifies behavior of type, const makes variable constant, volatile tells compiler that object may have value changed at any time
+Literal is value inserted directly into code, ex. return 5, can add suffix to specify type ex. 5L is long
+String is collection of sequential characters representing text, string literal placed in double quotes (vs. single quote char), ex. "hello world"
+Strings can be C-style const char array (ends with null terminator '\0', ex. string literals) or std::string objects
+Constant expression contains only compile time constants (value must be known at compile time)/operators & functions that support compile time evaluation, compiler can optimize const expressions more easily at compile time (speeds up program)
+Const variables are compile time const if initializer is constant expression, runtime const if not
+Constexpr ensures that variable is compile time constant, won't work if expression is non-constant
+Const variables have value that can't be changed after initialization (not implicitly const), constexpr variables have value that must be known at compile time (implicitly const), function parameters can be const/not constexpr
+Conditional/ternary operator is condition ? expression1 : expression2, if condition if true then expression1 is executed, else expression2 is, expressions 2/3 must have matching types (or types that can be matched), need to watch operators
