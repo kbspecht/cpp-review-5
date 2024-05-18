@@ -17,4 +17,6 @@ Constexpr ensures that variable is compile time constant, won't work if expressi
 Const variables have value that can't be changed after initialization (not implicitly const), constexpr variables have value that must be known at compile time (implicitly const), function parameters can be const/not constexpr
 Conditional/ternary operator is condition ? expression1 : expression2, if condition if true then expression1 is executed, else expression2 is, expressions 2/3 must have matching types (or types that can be matched), need to watch operators
 Functions require performance overhead, CPU must store address of current instruction/registers/jump back to location after function ends, for small functions overhead can be larger than time to execute, can instead write in place using inline expansion, replaces function call with code from function definition, not good for bigger functions/not every function can be expanded, use inline keyword
-In modern C++ inline means multiple definitions are allowed, 
+In modern C++ inline means multiple definitions are allowed
+Don't use inline unless you have reason to (defining functions/variables in header file), increases compile time (every code file including header needs to be recompiled instead of just header & its file)
+Inline variables added in C++17 (work same way) 
