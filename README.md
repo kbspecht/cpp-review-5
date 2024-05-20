@@ -19,4 +19,6 @@ Conditional/ternary operator is condition ? expression1 : expression2, if condit
 Functions require performance overhead, CPU must store address of current instruction/registers/jump back to location after function ends, for small functions overhead can be larger than time to execute, can instead write in place using inline expansion, replaces function call with code from function definition, not good for bigger functions/not every function can be expanded, use inline keyword
 In modern C++ inline means multiple definitions are allowed
 Don't use inline unless you have reason to (defining functions/variables in header file), increases compile time (every code file including header needs to be recompiled instead of just header & its file)
-Inline variables added in C++17 (work same way) 
+Inline variables added in C++17 (work same way)
+Can make constexpr functions as well as variables, return value computed at compile time if return value used where const expression required (replaces function call with return value, parameters must be const), can also be evaluated at runtime if parameters aren't constant (returns non-constexpr result), can't declare parameters as constexpr (can be const), implicitly inline (compiler must see full function definition, need multiple definitions to accomodate each file that calls it)
+Consteval (in C++20) indicates that function must evaluate at compile time or else compile error will result (immediate function), parameters not constexpr, can't evaluate at runtime, can use to make constexpr functions compile at runtime
